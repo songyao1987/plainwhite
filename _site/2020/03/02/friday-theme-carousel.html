@@ -110,19 +110,19 @@
 
                 </span>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#friday-theme"
+                    <a href="/friday-theme/friday-theme/list/posts.html#jenkins"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Friday Theme
+                        Jenkins
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#html"
+                    <a href="/friday-theme/friday-theme/list/posts.html#cicd"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        HTML
+                        CICD
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#images"
+                    <a href="/friday-theme/friday-theme/list/posts.html#maven"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        images
+                        Maven
                     </a>
                 
                     <a href="/friday-theme/friday-theme/list/posts.html#markdown"
@@ -130,19 +130,19 @@
                         Markdown
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#liquid"
+                    <a href="/friday-theme/friday-theme/list/posts.html#android"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Liquid
+                        Android
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#carousel"
+                    <a href="/friday-theme/friday-theme/list/posts.html#groovy"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Carousel
+                        Groovy
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#image-gallery"
+                    <a href="/friday-theme/friday-theme/list/posts.html#java"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Image Gallery
+                        Java
                     </a>
                 
             </div>
@@ -198,19 +198,19 @@
 
                 </span>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#friday-theme"
+                    <a href="/friday-theme/friday-theme/list/posts.html#jenkins"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Friday Theme
+                        Jenkins
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#html"
+                    <a href="/friday-theme/friday-theme/list/posts.html#cicd"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        HTML
+                        CICD
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#images"
+                    <a href="/friday-theme/friday-theme/list/posts.html#maven"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        images
+                        Maven
                     </a>
                 
                     <a href="/friday-theme/friday-theme/list/posts.html#markdown"
@@ -218,19 +218,19 @@
                         Markdown
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#liquid"
+                    <a href="/friday-theme/friday-theme/list/posts.html#android"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Liquid
+                        Android
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#carousel"
+                    <a href="/friday-theme/friday-theme/list/posts.html#groovy"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Carousel
+                        Groovy
                     </a>
                 
-                    <a href="/friday-theme/friday-theme/list/posts.html#image-gallery"
+                    <a href="/friday-theme/friday-theme/list/posts.html#java"
                        class="bg-white border rounded p-1 mr-2 mb-2 d-inline-block">
-                        Image Gallery
+                        Java
                     </a>
                 
             </div>
@@ -253,13 +253,57 @@
 
 </div>
 
-<p>Here’s an example for multiple images that uses Bootstrap’s Carousel javascript component for a photo slideshow. You don’t need to write any JavaScript, just place some Liquid tags and HTML in your Markdown.</p>
-
+<p>Here is the guidelines to activate SSL in jenkins.
 <!--more-->
+Step 1: Generate CSR certificate
+Execute the following command to generate csr certificate and give name “demo.ssl.csr“.</p>
 
-<p>To automate the layout, a list of images is stored in a frontmatter variable. The post then loops over that list to output the carousel. This is easier than copy-pasting the same HTML for each image.</p>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">openssl</span> <span class="nx">req</span> <span class="o">-</span><span class="k">new</span> <span class="o">&gt;</span> <span class="nx">demo</span><span class="p">.</span><span class="nx">ssl</span><span class="p">.</span><span class="nx">csr</span></code></pre></figure>
 
-<p>Here’s the carousel in action.</p>
+<p>Step 2: Create a key file
+Use your PEM file and execute the following command to create a file for the generating certificate and give the name “demo.cert.key”.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">openssl</span> <span class="nx">rsa</span> <span class="o">-</span><span class="k">in</span> <span class="nx">privkey</span><span class="p">.</span><span class="nx">pem</span> <span class="o">-</span><span class="nx">out</span> <span class="nx">demo</span><span class="p">.</span><span class="nx">cert</span><span class="p">.</span><span class="nx">key</span></code></pre></figure>
+
+<p>Step 3: Create CSR certificate using Key file
+Now we have a Key file and CSR file, run following command to create CSR file and define retention periods.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">openssl</span> <span class="nx">x509</span> <span class="o">-</span><span class="k">in</span> <span class="nx">demo</span><span class="p">.</span><span class="nx">ssl</span><span class="p">.</span><span class="nx">csr</span> <span class="o">-</span><span class="nx">out</span> <span class="nx">demo</span><span class="p">.</span><span class="nx">cert</span><span class="p">.</span><span class="nx">cert</span> <span class="o">-</span><span class="nx">req</span> <span class="o">-</span><span class="nx">signkey</span> <span class="nx">demo</span><span class="p">.</span><span class="nx">cert</span><span class="p">.</span><span class="nx">key</span> <span class="o">-</span><span class="nx">days</span> <span class="mi">365</span></code></pre></figure>
+
+<p>Step 4: Create pkcs12 file
+Now, use following command to create an intermediate pkcs12 file and define following parameters.
+Give name of pkcs12 file name, example- jenkins_demo.p12
+Set strong password for pkcs12 file
+Give FQDN or alias name, example- ericsong</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">openssl</span> <span class="nx">pkcs12</span> <span class="o">-</span><span class="k">export</span> <span class="o">-</span><span class="nx">out</span> <span class="nx">jenkins_demo</span><span class="p">.</span><span class="nx">p12</span> <span class="o">-</span><span class="nx">passout</span> <span class="dl">'</span><span class="s1">pass:songyao1234</span><span class="dl">'</span> <span class="o">-</span><span class="nx">inkey</span> <span class="nx">demo</span><span class="p">.</span><span class="nx">cert</span><span class="p">.</span><span class="nx">key</span> <span class="o">-</span><span class="k">in</span> <span class="nx">demo</span><span class="p">.</span><span class="nx">cert</span><span class="p">.</span><span class="nx">cert</span> <span class="o">-</span><span class="nx">name</span> <span class="nx">ericsong</span></code></pre></figure>
+
+<p>Step 5: Create Java Keystore file (JKS)
+Now we will use Ketstore command-line tool to generate a new key “jenkins_demo_jks” and will set a password in deststorepass field.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">keytool</span> <span class="o">-</span><span class="nx">importkeystore</span> <span class="o">-</span><span class="nx">srckeystore</span> <span class="nx">jenkins_demo</span><span class="p">.</span><span class="nx">p12</span> <span class="o">-</span><span class="nx">srcstorepass</span> <span class="dl">'</span><span class="s1">songyao1234</span><span class="dl">'</span> <span class="o">-</span><span class="nx">srcstoretype</span> <span class="nx">PKCS12</span> <span class="o">-</span><span class="nx">srcalias</span> <span class="nx">ericsong</span> <span class="o">-</span><span class="nx">deststoretype</span> <span class="nx">JKS</span> <span class="o">-</span><span class="nx">destkeystore</span> <span class="nx">jenkins_demo</span><span class="p">.</span><span class="nx">jks</span> <span class="o">-</span><span class="nx">deststorepass</span> <span class="dl">'</span><span class="s1">songyao1234</span><span class="dl">'</span> <span class="o">-</span><span class="nx">destalias</span> <span class="nx">ericsong</span></code></pre></figure>
+
+<p>Step 6: Copy keystore file to Jenkins
+Execute following commands to create keystore directory and add keystore file to Jenkins at default location as well as change directory permissions.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">cd</span> <span class="o">/</span><span class="kd">var</span><span class="sr">/lib/</span><span class="nx">jenkins</span>
+<span class="nx">mkdir</span> <span class="p">.</span><span class="nx">keystore</span>
+<span class="nx">cp</span> <span class="o">/</span><span class="nx">home</span><span class="o">/</span><span class="nx">sy</span><span class="o">/</span><span class="nx">jenkins_demo</span><span class="p">.</span><span class="nx">jks</span> <span class="o">/</span><span class="kd">var</span><span class="sr">/lib/</span><span class="nx">jenkins</span><span class="o">/</span><span class="p">.</span><span class="nx">keystore</span><span class="o">/</span>
+<span class="nx">chmod</span> <span class="mi">700</span> <span class="p">.</span><span class="nx">keystore</span><span class="o">/</span></code></pre></figure>
+
+<p>Step 7: Change in Jenkins file
+Make few changes in the Jenkins’s file property. Open the file /etc/default/jenkins file.</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">HTTPS_PORT</span><span class="o">=</span><span class="mi">8088</span>
+<span class="nx">KEYSTORE</span><span class="o">=</span><span class="sr">/var/</span><span class="nx">lib</span><span class="o">/</span><span class="nx">jenkins</span><span class="o">/</span><span class="p">.</span><span class="nx">keystore</span><span class="o">/</span><span class="nx">jenkins_demo</span><span class="p">.</span><span class="nx">jks</span>
+<span class="nx">PASSWORD</span><span class="o">=</span><span class="nx">songyao1234</span>
+<span class="nx">JENKINS_ARGS</span><span class="o">=</span><span class="dl">"</span><span class="s2">--webroot=/var/cache/$NAME/war --httpsPort=$HTTPS_PORT --httpsKeyStore=$KEYSTORE --httpsKeyStorePassword=$PASSWORD --httpPort=-1</span><span class="dl">"</span></code></pre></figure>
+
+<p>Step 8: Validate the configuration</p>
+
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">sudo</span> <span class="nx">systemctl</span> <span class="nx">restart</span> <span class="nx">jenkins</span>
+<span class="nx">sudo</span> <span class="nx">systemctl</span> <span class="nx">status</span> <span class="nx">jenkins</span>
+<span class="nx">https</span><span class="p">:</span><span class="c1">//&lt;dns_name/ip&gt;:8088</span></code></pre></figure>
 
 <div id="carouselExampleControls" class="carousel slide mb-4" data-ride="carousel">
     <div class="carousel-inner">
@@ -295,36 +339,7 @@
     </a>
 </div>
 
-<p>(The photos are from <a href="http://www.unsplash.com">Unsplash</a>!)</p>
-
-<p>To create this, put a list of image URLs in your page’s front matter, like this:</p>
-
-<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">images</span><span class="pi">:</span>
-  <span class="pi">-</span> <span class="s">http://www.something.com/path/to/image1.jpg</span>
-  <span class="pi">-</span> <span class="s">http://www.something.com/path/to/image2.jpg</span>
-  <span class="pi">-</span> <span class="s">http://www.something.com/path/to/image3.jpg</span></code></pre></figure>
-
-<p>And then add the following block of HTML:</p>
-
-<figure class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"carouselExampleControls"</span> <span class="na">class=</span><span class="s">"carousel slide mb-4"</span> <span class="na">data-ride=</span><span class="s">"carousel"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-inner"</span><span class="nt">&gt;</span>
-        {% for img in page.images %}
-            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"carousel-item {% if forloop.first %}active{% endif %}"</span><span class="nt">&gt;</span>
-                <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"{{ img }}"</span> <span class="na">class=</span><span class="s">"d-block w-100"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
-            <span class="nt">&lt;/div&gt;</span>
-        {% endfor %}
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-prev"</span> <span class="na">href=</span><span class="s">"#carouselExampleControls"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"prev"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-prev-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Previous<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/a&gt;</span>
-    <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"carousel-control-next"</span> <span class="na">href=</span><span class="s">"#carouselExampleControls"</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">data-slide=</span><span class="s">"next"</span><span class="nt">&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"carousel-control-next-icon"</span> <span class="na">aria-hidden=</span><span class="s">"true"</span><span class="nt">&gt;&lt;/span&gt;</span>
-        <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"sr-only"</span><span class="nt">&gt;</span>Next<span class="nt">&lt;/span&gt;</span>
-    <span class="nt">&lt;/a&gt;</span>
-<span class="nt">&lt;/div&gt;</span></code></pre></figure>
-
-<p>You could extend this idea by combining it with a modal to show the carousel in fullscreen mode.</p>
+<p>Hope it can be helpful to you.</p>
 
 
 
